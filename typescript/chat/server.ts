@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { createMcpHandler, McpServer } from "@modelcontextprotocol/server";
 import { RESOURCE_MIME_TYPE } from "@modelcontextprotocol/ext-apps/server";
+import { apps } from "#holon-sh";
 import { ChatStore } from "./store.ts";
 import { tools, result, messagesUri, messagesResource } from "./tools.ts";
 
@@ -28,10 +29,17 @@ export function createServer() {
     () => result(chat.list()),
   );
   //#region send-message-handler
-  server.registerTool("send_message", tools.send_message, (input) => {
-    const messages = chat.send(input);
+  server.registerTool("send_message", tools.send_message, async (input) => {
+    // Notify subscribed clients so the user's message appears.
+    chat.send(input);
     handler.notify.resourceUpdated(messagesUri);
-    return result(messages);
+
+    const { finalOutput } = await apps.agent.tools.run({ input: input.text });
+
+    // Notify subscribed clients so the agent's message appears.
+    chat.send({ author: { name: "Agent" }, text: finalOutput });
+    handler.notify.resourceUpdated(messagesUri);
+    return result(chat.list());
   });
   //#endregion send-message-handler
   server.registerResource(

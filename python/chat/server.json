@@ -1,5 +1,17 @@
 {
   "name": "io.github.holon-sh/tutorial-chat",
   "description": "Holon tutorial chat app",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "sh.holon": {
+        "requires": {
+          "agent": {
+            "name": "io.github.holon-sh/tutorial-agent",
+            "version": "1.0.0"
+          }
+        }
+      }
+    }
+  }
 }

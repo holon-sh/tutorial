@@ -5,6 +5,7 @@ from mcp.server.mcpserver import Context, MCPServer
 from mcp.types import CallToolResult, ToolAnnotations
 from pydantic import TypeAdapter
 
+from holon.apps import apps
 from store import ChatStore
 from tools import AuthorName, Snapshot, messages_uri, result
 
@@ -43,9 +44,16 @@ async def send_message(author: AuthorName, text: str, ctx: Context) -> CallToolR
 
     The author is a display name, not a verified identity.
     """
-    messages = chat.send({"author": {"name": author.name}, "text": text})
+    # Notify subscribed clients so the user's message appears.
+    chat.send({"author": {"name": author.name}, "text": text})
     await ctx.notify_resource_updated(messages_uri)
-    return result(messages)
+
+    agent_response = await apps.agent.tools.run(input=text)
+
+    # Notify subscribed clients so the agent's message appears.
+    chat.send({"author": {"name": "Agent"}, "text": agent_response["finalOutput"]})
+    await ctx.notify_resource_updated(messages_uri)
+    return result(chat.messages)
 
 
 # endregion send-message-handler
