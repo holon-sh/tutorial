@@ -10,7 +10,8 @@ export class ChatStore {
 
   //#region send-message
   send(input: Omit<Message, "id">): Message[] {
-    throw new Error("Implement send in the Build an app tutorial.");
+    this.messages.push({ id: randomUUID(), ...input });
+    return this.list();
   }
   //#endregion send-message
 }

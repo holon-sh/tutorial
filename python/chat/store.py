@@ -11,5 +11,6 @@ class ChatStore:
 
     # region send-message
     def send(self, message: NewMessage) -> list[Message]:
-        raise ToolError("Implement send in the Build an app tutorial.")
+        self.messages.append({"id": str(uuid4()), **message})
+        return self.messages
     # endregion send-message
