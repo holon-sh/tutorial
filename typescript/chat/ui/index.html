@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat</title>
+  </head>
+  <body>
+    <main class="chat-room" aria-label="Chat">
+      <header class="chat-toolbar">
+        <button id="refresh" type="button">Refresh messages</button>
+      </header>
+      <p id="read-status" role="alert"></p>
+      <ul
+        id="messages"
+        aria-label="Messages"
+        aria-live="polite"
+        aria-relevant="additions"
+      ></ul>
+      <p id="empty" hidden>No messages yet.</p>
+      <form id="send">
+        <label class="identity"
+          >Name
+          <input
+            id="author"
+            name="author"
+            aria-label="Display name"
+            required
+            value="Guest"
+            autocomplete="nickname"
+          />
+        </label>
+        <div class="entry">
+          <input
+            id="message"
+            name="message"
+            aria-label="Message"
+            required
+            placeholder="Message"
+            autocomplete="off"
+          />
+          <button type="submit" aria-label="Send">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M12 19V5m-6 6 6-6 6 6" />
+            </svg>
+          </button>
+        </div>
+      </form>
+      <p id="status" role="alert"></p>
+    </main>
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>

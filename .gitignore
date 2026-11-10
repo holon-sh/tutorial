@@ -1,0 +1,10 @@
+node_modules/
+dist/
+package-lock.json
+uv.lock
+generated/
+__pycache__/
+.mypy_cache/
+*.egg-info/
+.venv/
+holon/

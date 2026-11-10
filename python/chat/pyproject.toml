@@ -1,0 +1,14 @@
+[project]
+name = "tutorial-chat"
+version = "1.0.0"
+requires-python = ">=3.13"
+dependencies = [
+    "holon-sh==0.0.1.dev7",
+    "mcp==2.3.0",
+]
+
+[tool.setuptools]
+packages = []
+
+[dependency-groups]
+dev = ["holon-types==0.0.1.dev22"]

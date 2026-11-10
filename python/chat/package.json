@@ -1,0 +1,25 @@
+{
+  "name": "tutorial-chat",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.20 <26.12.0"
+  },
+  "scripts": {
+    "build": "vite build && vite build --mode mcp"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "2.0.3",
+    "holon-ui": "^0.0.1-dev.4",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.4",
+    "typescript": "7.0.2",
+    "vite": "8.3.3",
+    "vite-plugin-singlefile": "2.3.3"
+  },
+  "imports": {
+    "#holon-ui": "./generated/holon-ui/index.mjs"
+  }
+}

@@ -1,0 +1,45 @@
+name: Tutorial
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: "22"
+      - name: Install the Holon CLI
+        env:
+          VERSION: 0.0.1-dev.18
+          SHA256: 682ad162aa2932761037944cd8d4f81a81ba826ddd53ea4fd9c7a74563f8c28a
+        run: |
+          archive="$RUNNER_TEMP/holon.tar.gz"
+          curl --fail --silent --show-error --location --output "$archive" \
+            "https://github.com/holon-sh/cli/releases/download/v$VERSION/holon_${VERSION}_linux_amd64.tar.gz"
+          echo "$SHA256  $archive" | sha256sum --check --quiet
+          mkdir "$RUNNER_TEMP/holon"
+          tar --extract --gzip --file "$archive" --directory "$RUNNER_TEMP/holon" holon
+          echo "$RUNNER_TEMP/holon" >> "$GITHUB_PATH"
+      - run: npm install --prefix agent && npm run build --prefix agent
+      - run: |
+          npm install --prefix chat
+          holon check
+          npm run build --prefix chat
+        working-directory: typescript
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.13"
+      - run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install ./chat mypy==2.4.0
+          npm install --prefix chat
+          holon check
+          npm run build --prefix chat
+        working-directory: python

@@ -1,0 +1,9 @@
+apps:
+  - name: chat
+    path: chat
+    access:
+      server: {}
+  - name: agent
+    path: ../agent
+    access:
+      server: {}

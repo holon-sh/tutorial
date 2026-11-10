@@ -1,0 +1,11 @@
+{
+  "steps": {
+    "install": {
+      "commands": [
+        { "src": "download-model.mjs", "dest": "./" },
+        "node download-model.mjs",
+        "..."
+      ]
+    }
+  }
+}

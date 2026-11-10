@@ -1,0 +1,20 @@
+{
+  "name": "tutorial-agent",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.20 <26.12.0"
+  },
+  "scripts": {
+    "build": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "3.8.1",
+    "@modelcontextprotocol/server": "2.3.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.4",
+    "typescript": "7.0.2"
+  }
+}
