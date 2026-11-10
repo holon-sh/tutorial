@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/ext-apps": "2.0.3",
-    "holon-ui": "^0.0.1-dev.4",
-    "zod": "4.6.5"
+    "holon-ui": "^0.0.1-dev.4"
   },
   "devDependencies": {
     "@types/node": "26.6.4",
