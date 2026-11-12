@@ -3,7 +3,3 @@ apps:
     path: chat
     access:
       server: {}
-  - name: agent
-    path: ../agent
-    access:
-      server: {}

@@ -16,8 +16,8 @@ jobs:
           node-version: "22"
       - name: Install the Holon CLI
         env:
-          VERSION: 0.0.1-dev.23
-          SHA256: 3acef6e5d2bbd8962308e2ccecdc28af81429853877ce8df0572a66ae6f04d45
+          VERSION: 0.0.1-dev.25
+          SHA256: b3194dedd2ecf5b611a43a482238f4a29600c5c904b055ad31fc134d09d7f658
         run: |
           archive="$RUNNER_TEMP/holon.tar.gz"
           curl --fail --silent --show-error --location --output "$archive" \
@@ -26,9 +26,9 @@ jobs:
           mkdir "$RUNNER_TEMP/holon"
           tar --extract --gzip --file "$archive" --directory "$RUNNER_TEMP/holon" holon
           echo "$RUNNER_TEMP/holon" >> "$GITHUB_PATH"
-      - run: npm install --prefix agent && npm run build --prefix agent
       - run: |
           npm install --prefix chat
+          holon types generate
           holon check
           npm run build --prefix chat
         working-directory: typescript
@@ -40,6 +40,7 @@ jobs:
           source .venv/bin/activate
           pip install ./chat mypy==2.4.0
           npm install --prefix chat
+          holon types generate
           holon check
           npm run build --prefix chat
         working-directory: python

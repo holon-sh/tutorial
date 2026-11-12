@@ -36,17 +36,6 @@ main {
 .mcp-app .chat-room {
   height: 360px;
 }
-.chat-toolbar {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 18px;
-}
-#refresh {
-  padding: 6px 9px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  font-size: 12px;
-}
 #messages {
   flex: 1;
   min-height: 0;
@@ -170,14 +159,12 @@ button:disabled {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
-#status,
-#read-status {
+#status {
   margin: 8px 4px 0;
   color: light-dark(#b3261e, #ffb4ab);
   font-size: 13px;
 }
-#status:empty,
-#read-status:empty {
+#status:empty {
   margin: 0;
 }
 [hidden] {
