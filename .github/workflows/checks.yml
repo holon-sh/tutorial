@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   build:
-    runs-on: blacksmith-2vcpu-ubuntu-2404
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -16,8 +16,8 @@ jobs:
           node-version: "22"
       - name: Install the Holon CLI
         env:
-          VERSION: 0.0.1-dev.25
-          SHA256: b3194dedd2ecf5b611a43a482238f4a29600c5c904b055ad31fc134d09d7f658
+          VERSION: 0.0.1-dev.38
+          SHA256: 615cd7c8c774e88b61844bce7b7c6d1d7aec4794defac4f1cf94cffe3cbdcf73
         run: |
           archive="$RUNNER_TEMP/holon.tar.gz"
           curl --fail --silent --show-error --location --output "$archive" \

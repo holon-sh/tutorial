@@ -258,21 +258,25 @@ wheels = [
 
 [[package]]
 name = "holon-sh"
-version = "0.0.1.dev9"
+version = "0.0.1.dev14"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx2" },
     { name = "jsonschema" },
     { name = "mcp" },
+    { name = "opentelemetry-api" },
+    { name = "pydantic" },
+    { name = "starlette" },
+    { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/52/3c/1ac1f6b3b24c19b1b287fff2955ab372992f6e6d08d49d068e89fec2feb2/holon_sh-0.0.1.dev9.tar.gz", hash = "sha256:443dbd737cf41fac2b51530814f347af5c282d94ddc2dd7c34e76c20c4ae5c3a", size = 60042, upload-time = "2026-11-10T19:48:53.951Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a4/e0/4ebabdb88203dd59f6585fa427ce1d6cc8ad59e4dbd66536ea694b518724/holon_sh-0.0.1.dev14.tar.gz", hash = "sha256:5e4c2892f0b5719cf2b1bfd13278f84709157767faacfdf3ba8d1af9c4ade233", size = 59347, upload-time = "2026-11-13T00:06:11.447Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c8/3d/64636e649f76f0f26deb3730a974b8a412c0f212cb41a95bf954fabcf2a8/holon_sh-0.0.1.dev9-py3-none-any.whl", hash = "sha256:774e22874c02514f4632b27c68848bca03ff3c4c69d313708a5aba74e1db7185", size = 50218, upload-time = "2026-11-10T19:48:52.897Z" },
+    { url = "https://files.pythonhosted.org/packages/82/31/14dfc134c95aee0f8ad0529ebcb9f066aa6f251b4cd386b1b4d8adc1a8c2/holon_sh-0.0.1.dev14-py3-none-any.whl", hash = "sha256:ca02b47bb789fc84a95ea54bac5e51639d36b285c57116b000376177fac186d8", size = 47948, upload-time = "2026-11-13T00:06:10.325Z" },
 ]
 
 [[package]]
 name = "holon-types"
-version = "0.0.1.dev23"
+version = "0.0.1.dev38"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "mcp" },
@@ -281,10 +285,10 @@ dependencies = [
     { name = "typing-extensions" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e2/30/54d5e2bd9ef537e8e2a15119f117a245bc3a03422c5a6fbfbcaa0fe8b2e7/holon_types-0.0.1.dev23-py3-none-macosx_15_0_arm64.whl", hash = "sha256:38d64b6dd8c84ec3e26adbac0b822a73ca41abb00a6b98118074eb704202d864", size = 21886990, upload-time = "2026-11-10T03:27:48.119Z" },
-    { url = "https://files.pythonhosted.org/packages/4d/74/6cfa22d84a003430c71c4b266b1606a19d8441fa72a0a7b4f5299e79232a/holon_types-0.0.1.dev23-py3-none-macosx_15_0_x86_64.whl", hash = "sha256:4fb4e392c210dae64be032991161a4410c50d19240736762ad66ead7093f42ad", size = 22371393, upload-time = "2026-11-10T03:27:51.424Z" },
-    { url = "https://files.pythonhosted.org/packages/72/98/31968d81035d4d7f40e9f7aa79e9356df54b93c83bef8596599707b6ff0d/holon_types-0.0.1.dev23-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_2_aarch64.whl", hash = "sha256:59a06740ce9bf0651c1a6a033e4989491e46168adfdd4d9aa16337aaacc77921", size = 21151051, upload-time = "2026-11-10T03:27:53.978Z" },
-    { url = "https://files.pythonhosted.org/packages/7e/43/7aad1b0b3e68ed2a9c5c271094a7fdf40d1cc6ecb6f346a764af97ac1f36/holon_types-0.0.1.dev23-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.musllinux_1_2_x86_64.whl", hash = "sha256:e427749ee2fd795f5cc03c894d4b0906acfd8e76a55b1a43ce8f2a7f090e1711", size = 22088657, upload-time = "2026-11-10T03:27:56.728Z" },
+    { url = "https://files.pythonhosted.org/packages/cb/c8/89a0deef54f9a025f772a64951ec8dd799d815add919b353a67c8bcdeb98/holon_types-0.0.1.dev38-py3-none-macosx_15_0_arm64.whl", hash = "sha256:b69333b52e1a0531c07cfb65f8247bec0026b7515cf65c541b1542b4ec8c59c6", size = 22058850, upload-time = "2026-11-13T01:21:14.475Z" },
+    { url = "https://files.pythonhosted.org/packages/04/cb/252848dd029ad4bbf389bd0f8d3a1242314752cad40aee3c6d8ccdbf759a/holon_types-0.0.1.dev38-py3-none-macosx_15_0_x86_64.whl", hash = "sha256:0870e2db0affa29b800ec24a4580098ec9499c6ec4efb4887fde0cd15bfe7fb8", size = 22559972, upload-time = "2026-11-13T01:21:17.651Z" },
+    { url = "https://files.pythonhosted.org/packages/d7/70/c3e051b94419be8069152a47044d0b56e4afc62f38e04766abf848f71024/holon_types-0.0.1.dev38-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_2_aarch64.whl", hash = "sha256:79235d0c8fcd9f496f898f7a315bc37cd2104abb4aeb70467792d5ef098c8b41", size = 21315904, upload-time = "2026-11-13T01:21:20.2Z" },
+    { url = "https://files.pythonhosted.org/packages/f2/f9/053628dca698269926ae0d8199de70bcb48dfaa3ed64ab019ff4487f73c9/holon_types-0.0.1.dev38-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.musllinux_1_2_x86_64.whl", hash = "sha256:e58808bcf1412bf9de7fd5d04dc11230d7c7b6712f4925d888be8256d3359b23", size = 22274075, upload-time = "2026-11-13T01:21:22.946Z" },
 ]
 
 [[package]]
@@ -860,12 +864,12 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "holon-sh", specifier = "==0.0.1.dev9" },
+    { name = "holon-sh", specifier = "==0.0.1.dev14" },
     { name = "mcp", specifier = "==2.3.0" },
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "holon-types", specifier = "==0.0.1.dev23" }]
+dev = [{ name = "holon-types", specifier = "==0.0.1.dev38" }]
 
 [[package]]
 name = "typing-extensions"
