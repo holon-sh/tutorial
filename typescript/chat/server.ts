@@ -4,7 +4,7 @@ import { RESOURCE_MIME_TYPE } from "@modelcontextprotocol/ext-apps/server";
 import { ChatStore } from "./store.ts";
 import { tools, result, messagesUri, messagesResource } from "./tools.ts";
 
-export const frontend = new URL("./dist/web/", import.meta.url);
+export const frontend = new URL("./dist/", import.meta.url);
 const resourceUri = "ui://chat/app.html";
 const chat = new ChatStore();
 
@@ -43,9 +43,9 @@ export function createServer() {
         {
           uri: resourceUri,
           mimeType: RESOURCE_MIME_TYPE,
-          text: await readFile(
-            new URL("./dist/mcp/index.html", import.meta.url),
-            "utf8",
+          text: (await readFile(new URL("index.html", frontend), "utf8")).replace(
+            "<html",
+            "<html data-mcp-app",
           ),
         },
       ],

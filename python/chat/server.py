@@ -8,7 +8,7 @@ from pydantic import TypeAdapter
 from store import ChatStore
 from tools import AuthorName, Snapshot, messages_uri, result
 
-frontend = Path(__file__).parent / "dist/web"
+frontend = Path(__file__).parent / "dist"
 resource_uri = "ui://chat/app.html"
 chat = ChatStore()
 
@@ -57,4 +57,4 @@ async def send_message(author: AuthorName, text: str, ctx: Context) -> CallToolR
     mime_type=APP_MIME_TYPE,
 )
 def read_app() -> str:
-    return (Path(__file__).parent / "dist/mcp/index.html").read_text()
+    return (frontend / "index.html").read_text().replace("<html", "<html data-mcp-app", 1)

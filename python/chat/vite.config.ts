@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import { viteSingleFile } from "vite-plugin-singlefile";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   root: "ui",
-  base: mode === "mcp" ? "./" : "/chat/",
-  plugins: mode === "mcp" ? [viteSingleFile()] : [],
-  build: { outDir: mode === "mcp" ? "../dist/mcp" : "../dist/web", emptyOutDir: true },
-}));
+  base: "./",
+  plugins: [viteSingleFile()],
+  build: { outDir: "../dist", emptyOutDir: true },
+});

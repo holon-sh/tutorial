@@ -11,7 +11,7 @@ const status = document.querySelector<HTMLElement>("#status")!;
 const list = document.querySelector<HTMLUListElement>("#messages")!;
 const empty = document.querySelector<HTMLElement>("#empty")!;
 const view =
-  import.meta.env.MODE === "mcp"
+  document.documentElement.hasAttribute("data-mcp-app")
     ? new App({ name: "chat", version: "1.0.0" })
     : undefined;
 const direct = createApps({
@@ -77,7 +77,6 @@ form.addEventListener("submit", async (event) => {
 });
 
 if (view) {
-  document.documentElement.classList.add("mcp-app");
   view.ontoolresult = () => void messages.read().then(render, show);
   view.onhostcontextchanged = (context) => {
     if (context.theme)
