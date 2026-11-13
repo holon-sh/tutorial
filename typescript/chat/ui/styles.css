@@ -33,7 +33,7 @@ main {
   padding: 0 24px max(16px, env(safe-area-inset-bottom));
   position: relative;
 }
-.mcp-app .chat-room {
+[data-mcp-app] .chat-room {
   height: 360px;
 }
 #messages {
