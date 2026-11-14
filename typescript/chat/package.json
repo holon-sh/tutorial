@@ -12,7 +12,7 @@
     "@modelcontextprotocol/ext-apps": "^2.0.4",
     "@modelcontextprotocol/server": "2.3.1",
     "holon-sh": "^0.0.1-dev.24",
-    "holon-ui": "^0.0.1-dev.14",
+    "holon-ui": "^0.0.1-dev.17",
     "zod": "4.6.7"
   },
   "devDependencies": {
