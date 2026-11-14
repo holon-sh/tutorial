@@ -1,4 +1,4 @@
-import { App, ToolCallError, createApps, exposeTools } from "#holon-ui";
+import { ToolCallError, connect } from "#holon-ui";
 import type { Resources } from "#holon-ui";
 import "./styles.css";
 
@@ -10,15 +10,8 @@ const author = document.querySelector<HTMLInputElement>("#author")!;
 const status = document.querySelector<HTMLElement>("#status")!;
 const list = document.querySelector<HTMLUListElement>("#messages")!;
 const empty = document.querySelector<HTMLElement>("#empty")!;
-const view =
-  document.documentElement.hasAttribute("data-mcp-app")
-    ? new App({ name: "chat", version: "1.0.0" })
-    : undefined;
-const direct = createApps({
-  "tutorial-chat": { endpoint: `${location.origin}/mcp/chat` },
-})["tutorial-chat"];
-const chat = view ?? direct;
-const messages = chat.resources["chat://messages"];
+const app = await connect();
+const messages = app.resources["chat://messages"];
 
 function render({ messages, viewer }: Snapshot) {
   const atBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 40;
@@ -62,7 +55,7 @@ form.addEventListener("submit", async (event) => {
   send.disabled = true;
   status.textContent = "";
   try {
-    await chat.tools.send_message({
+    await app.tools.send_message({
       author: { name: author.value },
       text: message.value,
     });
@@ -76,18 +69,17 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-if (view) {
-  view.ontoolresult = () => void messages.read().then(render, show);
-  view.onhostcontextchanged = (context) => {
+if (app.view) {
+  app.view.addEventListener(
+    "toolresult",
+    () => void messages.read().then(render, show),
+  );
+  app.view.onhostcontextchanged = (context) => {
     if (context.theme)
       document.documentElement.style.colorScheme = context.theme;
   };
-  view.onteardown = () => ({});
-  await view.connect();
+  app.view.onteardown = () => ({});
   await messages.read().then(render, show);
 } else {
-  void messages.watch(render).catch(show);
-  await exposeTools(direct).catch((error) =>
-    console.warn("WebMCP registration failed.", error),
-  );
+  void app.resources["chat://messages"].watch(render).catch(show);
 }

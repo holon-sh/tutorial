@@ -11,4 +11,4 @@ dependencies = [
 packages = []
 
 [dependency-groups]
-dev = ["holon-types==0.0.1.dev38"]
+dev = ["holon-types==0.0.1.dev42"]
