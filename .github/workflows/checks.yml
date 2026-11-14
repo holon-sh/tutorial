@@ -16,8 +16,8 @@ jobs:
           node-version: "22"
       - name: Install the Holon CLI
         env:
-          VERSION: 0.0.1-dev.42
-          SHA256: f1287603d116b1e915389e83ef81c371291df79865051c2a7495eb3746a3aac5
+          VERSION: 0.0.1-dev.44
+          SHA256: d3ca0c5a4cc5f8b510f9f67fa987853fec78f51e42103e4a539602f758e9ce3b
         run: |
           archive="$RUNNER_TEMP/holon.tar.gz"
           curl --fail --silent --show-error --location --output "$archive" \
