@@ -258,7 +258,7 @@ wheels = [
 
 [[package]]
 name = "holon-sh"
-version = "0.0.1.dev14"
+version = "0.0.1.dev22"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx2" },
@@ -269,9 +269,9 @@ dependencies = [
     { name = "starlette" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a4/e0/4ebabdb88203dd59f6585fa427ce1d6cc8ad59e4dbd66536ea694b518724/holon_sh-0.0.1.dev14.tar.gz", hash = "sha256:5e4c2892f0b5719cf2b1bfd13278f84709157767faacfdf3ba8d1af9c4ade233", size = 59347, upload-time = "2026-11-13T00:06:11.447Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/29/7b/c3b304b8a649992a5f178ea358d2ed07b61a80167776355664bb16ec3949/holon_sh-0.0.1.dev22.tar.gz", hash = "sha256:f5a6ce84c934ceb9f73d40a082545ddf2533bdc0a023a11bc1de2cb00e52783c", size = 58754, upload-time = "2026-11-14T18:18:25.641Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/82/31/14dfc134c95aee0f8ad0529ebcb9f066aa6f251b4cd386b1b4d8adc1a8c2/holon_sh-0.0.1.dev14-py3-none-any.whl", hash = "sha256:ca02b47bb789fc84a95ea54bac5e51639d36b285c57116b000376177fac186d8", size = 47948, upload-time = "2026-11-13T00:06:10.325Z" },
+    { url = "https://files.pythonhosted.org/packages/6e/79/46fee18d59534612bc394de7b3bfb290e2e3fd5bc4b8c5c21df3926e5baa/holon_sh-0.0.1.dev22-py3-none-any.whl", hash = "sha256:31a597dc552a50745a4a5763cc5eb5bba17b23191c570913c2c40dfd8ce4d060", size = 48071, upload-time = "2026-11-14T18:18:24.586Z" },
 ]
 
 [[package]]
@@ -864,7 +864,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "holon-sh", specifier = "==0.0.1.dev14" },
+    { name = "holon-sh", specifier = "==0.0.1.dev22" },
     { name = "mcp", specifier = "==2.3.0" },
 ]
 

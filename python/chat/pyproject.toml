@@ -3,7 +3,7 @@ name = "tutorial-chat"
 version = "1.0.0"
 requires-python = ">=3.13"
 dependencies = [
-    "holon-sh==0.0.1.dev14",
+    "holon-sh==0.0.1.dev22",
     "mcp==2.3.0",
 ]
 
