@@ -6,3 +6,6 @@ __pycache__/
 *.egg-info/
 .venv/
 holon/
+.pytest_cache/
+.ruff_cache/
+.env
