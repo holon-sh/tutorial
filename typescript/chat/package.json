@@ -11,8 +11,8 @@
   "dependencies": {
     "@modelcontextprotocol/ext-apps": "^2.0.4",
     "@modelcontextprotocol/server": "2.3.1",
-    "holon-sh": "^0.0.1-dev.34",
-    "holon-ui": "^0.0.1-dev.24",
+    "holon-sh": "^0.0.1-dev.37",
+    "holon-ui": "^0.0.1-dev.25",
     "zod": "4.6.7"
   },
   "devDependencies": {
